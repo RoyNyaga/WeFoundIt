@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @missing_item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @missing_item.description %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @missing_item.region %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @missing_item.city %>
+</p>
+
+<p>
+  <strong>Is missing:</strong>
+  <%= @missing_item.is_missing %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @missing_item.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_missing_item_path(@missing_item) %> |
+<%= link_to 'Back', missing_items_path %>
