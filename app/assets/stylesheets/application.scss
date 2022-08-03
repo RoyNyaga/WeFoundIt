@@ -22,3 +22,27 @@ body{
   color: antiquewhite;
 }
 
+.new_user{
+  label{
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+}
+
+.field{
+  margin: 7px 0;
+}
+
+.general-btn{
+  background-color: black;
+  color:antiquewhite;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.general-btn:hover{
+  background-color: transparent;
+  color: black;
+}
+
