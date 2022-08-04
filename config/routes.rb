@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root "missing_items#index"
   resources :missing_items
   devise_for :users
