@@ -1,5 +1,7 @@
 <div class="container-fluid">
-  <%= link_to "Add missing items", new_missing_item_path, class: "general-btn" %>
+  <div class="text-center">
+    <%= link_to "Add missing items", new_missing_item_path, class: "general-btn" %>
+  </div>
   <div class="row">
     <% @account_missing_items.each do |item| %>
       <div class="col-md-4">

@@ -12,33 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name %><br />
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.label :description %><br />
+    <%= form.text_field :description, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :region %>
-    <%= form.text_field :region %>
+    <%= form.label :region %><br />
+    <%= form.text_field :region, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label :city %><br />
+    <%= form.text_field :city, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :is_missing %>
-    <%= form.check_box :is_missing %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :upload_photo %><br />
+    <%= form.file_field :photo %>
   </div>
 
   <div class="actions">
