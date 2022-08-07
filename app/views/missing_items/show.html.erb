@@ -2,41 +2,49 @@
   <div class="row">
     <div class="col-md-4">
       <h4 class="text-center">Photos</h4>
+      <%= form_with(model: Photo.new) do |form| %>
+        <div>
+          <%= form.label :upload_photo %><br />
+          <%= form.file_field :photo %>
+        </div>
+        <%= form.submit "Save Image"%>
+      <% end %>
+      <% @missing_item.photos do |photo| %>
+        <div>
+          <%= image_tag url_for(photo.photo), class: "mig-fluid" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-8 text-center">
+      <p>
+        <strong>Name:</strong>
+        <%= @missing_item.name %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @missing_item.description %>
+      </p>
+
+      <p>
+        <strong>Region:</strong>
+        <%= @missing_item.region %>
+      </p>
+
+      <p>
+        <strong>City:</strong>
+        <%= @missing_item.city %>
+      </p>
+
+      <p>
+        <strong>Is missing:</strong>
+        <%= @missing_item.is_missing %>
+      </p>
+
     </div>
   </div>
 </div>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @missing_item.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @missing_item.description %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @missing_item.region %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @missing_item.city %>
-</p>
-
-<p>
-  <strong>Is missing:</strong>
-  <%= @missing_item.is_missing %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @missing_item.user_id %>
-</p>
 
 <%= link_to 'Edit', edit_missing_item_path(@missing_item) %> |
 <%= link_to 'Back', missing_items_path %>
