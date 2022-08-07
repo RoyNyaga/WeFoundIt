@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h4 class="text-center">Update your personal information</h4>
+      <%= form_with model: @user do |form| %>
+      <div class="form-group">
+        <%= form.label :email %><br/>
+        <%= form.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+      <%= form.label :full_name %><br/>
+        <%= form.text_field :full_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :phone %><br/>
+        <%= form.text_field :phone, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :region %><br/>
+        <%= form.text_field :region, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :city %><br/>
+        <%= form.text_field :city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :avatar %><br/>
+        <%= form.file_field :avatar %>
+      </div>
+      <br>
+      <%= form.submit "Save Changes", class: "general-btn" %>
+    <% end %>
+    </div>
+  </div>
+</div>
