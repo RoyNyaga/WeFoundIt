@@ -66,6 +66,6 @@ class MissingItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def missing_item_params
-      params.require(:missing_item).permit(:name, :description, :region, :city, :is_missing, :user_id)
+      params.require(:missing_item).permit(:name, :description, :region, :city, :photo, :user_id)
     end
 end

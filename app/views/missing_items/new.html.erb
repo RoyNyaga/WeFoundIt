@@ -1,9 +1,11 @@
-<div class="container-fluid">
+<div class="container">
+  <div class="">
+    <%= link_to 'Back', missing_items_path, class: "general-btn" %>
+  </div>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-5 mx-auto">
       <h4 class="text-center">New Missing Item</h4>
       <%= render 'form', missing_item: @missing_item %>
-      <%= link_to 'Back', missing_items_path %>
     </div>
   </div>
 </div>

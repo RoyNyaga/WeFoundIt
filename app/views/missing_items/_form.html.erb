@@ -1,11 +1,11 @@
 <%= form_with(model: missing_item) do |form| %>
   <% if missing_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(missing_item.errors.count, "error") %> prohibited this missing_item from being saved:</h2>
+      <h5 class="text-danger"><%= pluralize(missing_item.errors.count, "error") %> prohibited this missing_item from being saved:</h5>
 
       <ul>
         <% missing_item.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="text-danger"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
@@ -36,7 +36,11 @@
     <%= form.file_field :photo %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="actions my-3">
+    <%= form.submit class: "general-btn" %>
   </div>
 <% end %>
