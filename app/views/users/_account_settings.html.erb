@@ -1,5 +1,25 @@
 
   <div class="text-center">
     <h4 class="text-center my-4">Account Information</h4>
-    <%= link_to "Edit account information", edit_user_path, class: "general-btn" %>
+    <div class="row">
+      <div class="col-md-5">
+        <% if @user.avatar.attached? %>
+          <%= image_tag url_for(@user.avatar), class: "img-fluid" %>
+        <% else %>
+          <%= image_tag "user-avatar.jpeg", class: "img-fluid" %>
+        <% end %>
+      </div>
+
+      <div class="col-md-7">
+        <p>Full Name: <%= @user.full_name %></p>
+        <p>Email: <%= @user.email %></p>
+        <p>Phone: <%= @user.phone %></p>
+        <p>Region: <%= @user.region %></p>
+        <p>City: <%= @user.city %></p>
+      </div>
+    </div>
+   
+    <div class="my-5">
+      <%= link_to "Edit account information", edit_user_path, class: "general-btn" %>
+    </div>
   </div>
