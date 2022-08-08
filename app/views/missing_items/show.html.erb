@@ -3,11 +3,13 @@
     <div class="col-md-4">
       <h4 class="text-center">Photos</h4>
       <%= form_with(model: Photo.new) do |form| %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.hidden_field :missing_item_id, value: @missing_item.id %>
         <div>
           <%= form.label :upload_photo %><br />
           <%= form.file_field :photo %>
         </div>
-        <%= form.submit "Save Image"%>
+        <%= form.submit "Save Image", class: "general-btn"%>
       <% end %>
       <% @missing_item.photos do |photo| %>
         <div>
