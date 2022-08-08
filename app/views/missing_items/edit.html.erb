@@ -1,6 +1,13 @@
-<h1>Editing Missing Item</h1>
+<div class="container">
+  <div class="my-4">
+    <%= link_to 'Back', @missing_item , class: "general-btn"%>
+  </div>
 
-<%= render 'form', missing_item: @missing_item %>
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h5 class="text-center my-4">Editing Missing Item</h5>
+      <%= render 'form', missing_item: @missing_item %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', @missing_item %> |
-<%= link_to 'Back', missing_items_path %>
