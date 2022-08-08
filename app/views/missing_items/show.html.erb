@@ -10,9 +10,9 @@
     <% if current_user == @creator %>
       <%= link_to 'Missing Items', missing_items_path, class: "general-btn" %>
       <% if @missing_item.is_missing %>
-        <%= link_to "Has been claimed", toggle_status_missing_item_path(status: "claimed"), class: "claim" %>
+        <%= link_to "Has been claimed", toggle_status_missing_item_path(status: "claimed"), class: "claimed" %>
       <% else %>
-        <%= link_to "Has not been claimed", toggle_status_missing_item_path(status: "no-claimed"), class: "not-claim" %>
+        <%= link_to "Has not been claimed", toggle_status_missing_item_path(status: "no-claimed"), class: "not-claimed" %>
       <% end %>
     <% end %>
     <%= link_to 'Edit', edit_missing_item_path(@missing_item), class: "general-btn" %>

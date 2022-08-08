@@ -62,9 +62,13 @@ class MissingItemsController < ApplicationController
   def toggle_status
     if params[:status] == "claimed"
       @missing_item.update(is_missing: false)
+      message = "Item missing status updated to claimed"
     else
+      message = "Item missing status updated to not claimed"
       @missing_item.update(is_missing: true)
     end
+    flash[:notice] = message
+    redirect_to @missing_item
   end
 
   private
