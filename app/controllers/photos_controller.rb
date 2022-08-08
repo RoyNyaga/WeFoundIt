@@ -2,8 +2,13 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photos_params)
     @missing_item = MissingItem.find_by(id: params[:photo][:missing_item_id])
-    flash[:notice]= "Photo was successfully Added"
-    redirect_to missing_item_path(@missing_item)
+    if @photo.save
+      flash[:notice] = "Photo was successfully Added"
+      redirect_to missing_item_path(@missing_item)
+    else
+      flash.now[:notice] = "Something went wrong"
+      redirect_to missing_item_path(@missing_item)
+    end
   end
 
   private

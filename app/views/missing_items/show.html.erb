@@ -14,7 +14,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h4 class="text-center">Photos</h4>
       <% if current_user == @creator %>
         <%= form_with(model: Photo.new) do |form| %>
@@ -24,18 +24,31 @@
             <%= form.label :upload_photo %><br />
             <%= form.file_field :photo %>
           </div>
-          <%= form.submit "Save Image", class: "general-btn"%>
+          <%= form.submit "Save Image", class: "general-btn my-3"%>
         <% end %>
       <% end %>
 
-      <% @missing_item.photos do |photo| %>
-        <div>
-          <%= image_tag url_for(photo.photo), class: "mig-fluid" %>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% @missing_item.photos.each do |photo| %>
+            <div class="carousel-item active">
+              <%= image_tag url_for(photo.photo), class: "img-fluid" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
 
-    <div class="col-md-8 text-center">
+    <div class="col-md-6 text-center">
+      <h4 class="my-5">Missing Item properties</h4>
       <p>
         <strong>Name:</strong>
         <%= @missing_item.name %>
