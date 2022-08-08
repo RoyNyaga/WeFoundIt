@@ -9,6 +9,11 @@
   <div class="text-center my-3">
     <% if current_user == @creator %>
       <%= link_to 'Missing Items', missing_items_path, class: "general-btn" %>
+      <% if @missing_item.is_missing %>
+        <%= link_to "Has been claimed", toggle_status_missing_item_path(status: "claimed"), class: "claim" %>
+      <% else %>
+        <%= link_to "Has not been claimed", toggle_status_missing_item_path(status: "no-claimed"), class: "not-claim" %>
+      <% end %>
     <% end %>
     <%= link_to 'Edit', edit_missing_item_path(@missing_item), class: "general-btn" %>
   </div>
@@ -70,8 +75,12 @@
       </p>
 
       <p>
-        <strong>Is missing:</strong>
-        <%= @missing_item.is_missing %>
+        <strong>Status</strong>
+        <% if @missing_item.is_missing %>
+          <span class="badge bg-danger">Not claimed</span>
+        <% else %>
+          <span class="badge bg-success">Claimed</span>
+        <% end %>
       </p>
 
     </div>

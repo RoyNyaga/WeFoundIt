@@ -1,6 +1,6 @@
 class MissingItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_missing_item, only: %i[ show edit update destroy ]
+  before_action :set_missing_item, only: %i[ show edit update destroy, toggle_status ]
 
   # GET /missing_items or /missing_items.json
   def index
@@ -56,6 +56,14 @@ class MissingItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to missing_items_url, notice: "Missing item was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def toggle_status
+    if params[:status] == "claimed"
+      @missing_item.update(is_missing: false)
+    else
+      @missing_item.update(is_missing: true)
     end
   end
 
