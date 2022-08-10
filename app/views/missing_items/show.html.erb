@@ -89,7 +89,7 @@
         <div class="user-and-form mx-auto" style="width: 80%">
           <div class="comment-form">
             <%= form_with model: Comment.new do |form| %>
-              <%= form.text_field :message, class: "form-control" %>
+              <%= form.text_field :message, class: "form-control", required: true %>
               <%= form.hidden_field :user_id, value: current_user.id %>
               <%= form.hidden_field :missing_item_id, value: @missing_item.id %> <br>
               <%= form.submit "Add Comment", class: "general-btn" %>
@@ -99,8 +99,8 @@
 
         <div class="comment-messages">  
           <% @comments.each do |comment| %>
-            <div class="messages-div d-flex" style="border-bottom: 2px solid black;">
-              <div class="image-div" style="width: 10%">
+            <div class="messages-div d-flex p-3" style="border-bottom: 2px solid black;">
+              <div class="image-div" style="width: 15%">
                 <% if comment.user.avatar.attached? %>
                   <%= image_tag url_for(comment.user.avatar), class: "img-fluid", style: "border-radius: 50px"%>
                   <% else %>
@@ -108,8 +108,32 @@
                 <% end %>
               </div>
 
-              <div class="comment" style="70%">
+              <div class="comment" style="width: 70%">
                 <%= comment.message %>
+              </div>
+
+              <div class="update-accordion">
+                <button class="accordion-button general-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Update
+                </button>
+              </div>
+            </div>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="user-and-form mx-auto" style="width: 80%">
+                      <div class="comment-form">
+                        <%= form_with model: comment do |form| %>
+                          <%= form.text_field :message, class: "form-control", required: true %>
+                          <%= form.hidden_field :user_id, value: current_user.id %>
+                          <%= form.hidden_field :missing_item_id, value: @missing_item.id %> <br>
+                          <%= form.submit "Add Comment", class: "general-btn" %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
