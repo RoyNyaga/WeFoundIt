@@ -42,9 +42,11 @@ ActiveRecord::Schema.define(version: 2022_08_10_094710) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "missing_item_id", null: false
     t.string "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["missing_item_id"], name: "index_comments_on_missing_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_08_10_094710) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "missing_items"
   add_foreign_key "comments", "users"
   add_foreign_key "missing_items", "users"
   add_foreign_key "photos", "missing_items"
