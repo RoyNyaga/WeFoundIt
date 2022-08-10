@@ -1,37 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Missing Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Region</th>
-      <th>City</th>
-      <th>Is missing</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <h3 class="text-center my-5">Missing Items</h3>
+  <div class="row">
     <% @missing_items.each do |missing_item| %>
-      <tr>
-        <td><%= missing_item.name %></td>
-        <td><%= missing_item.description %></td>
-        <td><%= missing_item.region %></td>
-        <td><%= missing_item.city %></td>
-        <td><%= missing_item.is_missing %></td>
-        <td><%= missing_item.user_id %></td>
-        <td><%= link_to 'Show', missing_item %></td>
-        <td><%= link_to 'Edit', edit_missing_item_path(missing_item) %></td>
-        <td><%= link_to 'Destroy', missing_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-md-3">
+        <%= link_to missing_item_path(missing_item), class: "index-missing-tiems" do %>
+          <div><%= image_tag url_for(missing_item.photos.first.photo), class: "img-fluid" %></div>
+          <h5 class="text-center"><%= missing_item.name %></h5>
+          <div class="d-flex justify-content-between">
+            <p class="time-ago"><%=time_ago_in_words(missing_item.created_at) %> ago</p>
+            <p>
+              <% if missing_item.is_missing %>
+                <span class="badge bg-danger">Not claimed</span>
+              <% elsif %>
+                <span class="badge bg-danger">Not claimed</span>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Missing Item', new_missing_item_path %>
+  </div>
+</div>

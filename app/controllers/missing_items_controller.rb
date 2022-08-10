@@ -4,7 +4,7 @@ class MissingItemsController < ApplicationController
 
   # GET /missing_items or /missing_items.json
   def index
-    @missing_items = MissingItem.all
+    @missing_items = MissingItem.joins(:photos).distinct
   end
 
   # GET /missing_items/1 or /missing_items/1.json
