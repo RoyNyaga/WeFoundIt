@@ -84,6 +84,37 @@
         <% end %>
       </p>
 
+      <div class="comment-div">
+        <h4>Comments</h4>
+        <div class="user-and-form">
+          <div class="comment-form">
+            <%= form_with model: Comment.new do |form| %>
+              <%= form.text_field :message, class: "form-control" %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.hidden_field :missing_item_id, value: @missing_item.id %>
+              <%= form.submit "Add Comment" class: "general-btn" %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="comment-messages">  
+          <% @comments.each do |comment| %>
+            <div class="messages-div d-flex" style="border-bottom: 2px solid black;">
+              <div class="image-div" style="width: 10%">
+                <% if comment.user.avatar.attached? %>
+                  <%= image_tag url_for(comment.user.avatar), class: "img-fluid", style: "border-radius: 50px"%>
+                  <% else %>
+                  <%= comment.user.full_name.split(" ").first %>
+                <% end %>
+              </div>
+
+              <div class="comment" style="70%">
+                <%= comment.message %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

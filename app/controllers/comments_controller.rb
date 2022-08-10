@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def create
     @missing_item = MissingItem.find_by(id: params[:comment][:missing_item_id])
     @comment = Comment.new(comment_params)
-    if @comment.save?
+    if @comment.save
       flash[:notice] = "Comment was successfully Added"
       redirect_to @missing_item
     end

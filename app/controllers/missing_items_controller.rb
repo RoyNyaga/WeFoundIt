@@ -10,6 +10,7 @@ class MissingItemsController < ApplicationController
   # GET /missing_items/1 or /missing_items/1.json
   def show
     @creator = @missing_item.user
+    @comments = @missing_item.comments
   end
 
   # GET /missing_items/new
