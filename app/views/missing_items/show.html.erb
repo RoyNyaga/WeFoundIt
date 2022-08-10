@@ -86,13 +86,13 @@
 
       <div class="comment-div">
         <h4>Comments</h4>
-        <div class="user-and-form">
+        <div class="user-and-form mx-auto" style="width: 80%">
           <div class="comment-form">
             <%= form_with model: Comment.new do |form| %>
               <%= form.text_field :message, class: "form-control" %>
               <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.hidden_field :missing_item_id, value: @missing_item.id %>
-              <%= form.submit "Add Comment" class: "general-btn" %>
+              <%= form.hidden_field :missing_item_id, value: @missing_item.id %> <br>
+              <%= form.submit "Add Comment", class: "general-btn" %>
             <% end %>
           </div>
         </div>

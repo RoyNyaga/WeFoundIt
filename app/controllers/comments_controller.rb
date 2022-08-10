@@ -19,6 +19,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:missing_item_id, :user_id)
+    params.require(:comment).permit(:missing_item_id, :user_id, :message)
   end
 end
