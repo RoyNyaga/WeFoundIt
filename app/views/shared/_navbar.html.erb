@@ -12,14 +12,12 @@
             </li>
             <li class="nav-item text-center">
               <%=link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-                <i class="fa fa-sign-out nav-icons" aria-hidden="true"></i>
                 <span class="nav-link-text d-block">Logout</span>
               <% end %>
             </li>
           <% else %>
             <li class="nav-item text-center">
               <%=link_to new_user_session_path, class: "nav-link" do %>
-                <i class="fa fa-sign-in" aria-hidden="true">
                 <span class="nav-link-text d-block">New Account</span>
               <% end %>
             <li>
