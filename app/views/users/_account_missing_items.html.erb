@@ -1,11 +1,24 @@
 <div class="container-fluid">
-  <div class="text-center">
-    <%= link_to "Add missing items", new_missing_item_path, class: "general-btn" %>
+  <div class="text-center my-3">
+    <%= link_to "Add missing items", new_missing_item_path, class: "general-btn-small" %>
   </div>
   <div class="row">
     <% @account_missing_items.each do |item| %>
       <div class="col-md-4">
-        <p><%= item.name%></p>
+        <%= link_to missing_item_path(item), class: "index-missing-tiems" do %>
+          <div><%= image_tag url_for(item.photos.first.photo), class: "img-fluid" %></div>
+          <h5 class="text-center"><%= item.name %></h5>
+          <div class="d-flex justify-content-between">
+            <p class="time-ago"><%=time_ago_in_words(item.created_at) %> ago</p>
+            <p>
+              <% if item.is_missing %>
+                <span class="badge bg-danger">Not claimed</span>
+              <% elsif %>
+                <span class="badge bg-danger">claimed</span>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
