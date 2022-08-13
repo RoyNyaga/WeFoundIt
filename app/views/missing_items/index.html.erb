@@ -1,25 +1,26 @@
 <div class="container">
   <h3 class="text-center my-5">Missing Items</h3>
   <div class="row search-div">
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
       <%= form_with url: missing_items_path, method: :get do |form| %>
         <div class="row">
           <div class="col-md-9">
-            <%= form.label :name %><br />
-            <%= form.text_field :name %>
+            <%= form.label :name%><br />
+            <%= form.text_field :name, class: "form-control"  %>
           </div>
-          <div class="col-md-3">
-            <%= form.submit "Search" %>
+          <div class="col-md-2"><br />
+            <%= form.submit "Search", class: "general-btn" %>
+          </div>
+          <div class="col-md-1">
+          <br>
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <i style="font-size: 2em" class="fa-solid fa-arrow-down-short-wide"></i>
+            </button>
           </div>
         </div>
         <div class="col-md-12">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Advanced Search
-                </button>
-              </h2>
               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
