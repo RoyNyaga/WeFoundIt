@@ -3,10 +3,11 @@
   <div class="row">
     <div class="col-md-6 mx-auto search-div">
       <%= form_with url: missing_items_path(search: true), method: :get do |form| %>
+        <%= form.hidden_field :search, value: true %>
         <div class="row">
           <div class="col-md-9">
             <%= form.label :name%><br />
-            <%= form.text_field :name, class: "form-control"  %>
+            <%= form.text_field :name, required: true, class: "form-control"  %>
           </div>
           <div class="col-md-2"><br />
             <%= form.submit "Search", class: "general-btn" %>

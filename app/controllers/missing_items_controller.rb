@@ -4,7 +4,17 @@ class MissingItemsController < ApplicationController
 
   # GET /missing_items or /missing_items.json
   def index
-    @missing_items = MissingItem.joins(:photos).distinct
+    is_search = params[:search]
+    if is_search
+      sql = "name LIKE '%#{params[:name]}%'"
+      sql = sql + " AND city LIKE '%#{params[:city]}%'" if params[:city].present?
+      sql = sql + " AND region LIKE '%#{params[:region]}%'" if params[:region].present?
+      sql = sql + " AND is_missing LIKE '%#{params[:is_missing]}%'" if params[:is_missing]
+      @missing_items = MissingItem.joins(:photos).where(sql).distinct
+      flash[:notice] = "#{@missing_items.size} item(s) Found"
+    else
+      @missing_items = MissingItem.joins(:photos).distinct
+    end
   end
 
   # GET /missing_items/1 or /missing_items/1.json
