@@ -1,5 +1,38 @@
 <div class="container">
   <h3 class="text-center my-5">Missing Items</h3>
+  <div class="row search-div">
+    <div class="col-md-6">
+      <%= form_with url: missing_items_path, method: :get do |form| %>
+        <div class="row">
+          <div class="col-md-9">
+            <%= form.label :name %><br />
+            <%= form.text_field :name %>
+          </div>
+          <div class="col-md-3">
+            <%= form.submit "Search" %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Advanced Search
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <% @missing_items.each do |missing_item| %>
       <div class="col-md-3">
@@ -12,7 +45,7 @@
               <% if missing_item.is_missing %>
                 <span class="badge bg-danger">Not claimed</span>
               <% elsif %>
-                <span class="badge bg-danger">Not claimed</span>
+                <span class="badge bg-info">Claimed</span>
               <% end %>
             </p>
           </div>
