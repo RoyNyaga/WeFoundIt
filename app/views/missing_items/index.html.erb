@@ -1,7 +1,10 @@
+
+<%= render "shared/header"%>
+
 <div class="container">
   <h3 class="text-center my-5">Missing Items</h3>
   <div class="row">
-    <div class="col-md-6 mx-auto search-div">
+    <div id="seaching" class="col-md-6 mx-auto search-div">
       <%= form_with url: missing_items_path(search: true), method: :get do |form| %>
         <%= form.hidden_field :search, value: true %>
         <div class="row">

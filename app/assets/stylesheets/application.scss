@@ -109,3 +109,14 @@ body{
   padding-bottom: 10px;
 }
 
+.header-div{
+  height: 90vh;
+  background: linear-gradient(108deg, rgba(0,0,0,0.6) 38%, rgba(0,0,0,0.2) 75%),
+  image-url("download.jpeg") center/cover no-repeat fixed;
+  padding: 20px;
+  color: white;
+  letter-spacing: 5px;
+  line-height: 5px;
+  color: #f5ebe8cc;
+}
+

@@ -18,9 +18,14 @@
           <% else %>
             <li class="nav-item text-center">
               <%=link_to new_user_session_path, class: "nav-link" do %>
-                <span class="nav-link-text d-block">New Account</span>
+                <span class="nav-link-text d-block">Loging</span>
               <% end %>
-            <li>
+            </li>
+            <li class="nav-item text-center">
+              <%=link_to new_user_registration_path, class: "nav-link" do %>
+                <span class="nav-link-text d-block">Create Account</span>
+              <% end %>
+            </li>
           <% end %>                      
         </ul>
       </div>
