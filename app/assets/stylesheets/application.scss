@@ -86,3 +86,17 @@ body{
   color: rgba(0, 0, 0, 0.449)
 }
 
+.general-btn-small{
+  background-color: black;
+  color:antiquewhite;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 0.6em;
+}
+
+.general-btn-small:hover{
+  background-color: transparent;
+  color: black;
+}
+

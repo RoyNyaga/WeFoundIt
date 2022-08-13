@@ -113,14 +113,14 @@
               </div>
 
               <div class="update-accordion">
-                <button class="accordion-button general-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button general-btn" type="button" data-bs-toggle="collapse" data-bs-target="#<%= "collaps-#{comment.id}"%>" aria-expanded="true" aria-controls="collapseOne">
                   Update
                 </button>
               </div>
             </div>
             <div class="accordion" id="accordionExample">
               <div class="accordion-item">
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div id="<%= "collaps-#{comment.id}" %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
                     <div class="user-and-form mx-auto" style="width: 80%">
                       <div class="comment-form">
@@ -128,7 +128,7 @@
                           <%= form.text_field :message, class: "form-control", required: true %>
                           <%= form.hidden_field :user_id, value: current_user.id %>
                           <%= form.hidden_field :missing_item_id, value: @missing_item.id %> <br>
-                          <%= form.submit "Add Comment", class: "general-btn" %>
+                          <%= form.submit "Update comment", class: "general-btn" %>
                         <% end %>
                       </div>
                     </div>
