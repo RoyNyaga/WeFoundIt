@@ -1,4 +1,25 @@
 class PhotosController < ApplicationController
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @missing_item = @photo.missing_item
+    @photo.destroy
+    flash[:notice] = "Photo Deleted"
+    redirect_to edit_missing_item_path(@missing_item)
+  end
+
+  def update
+    @photo = Photo.find(params[:id])
+    @missing_item = @photo.missing_item
+    if @photo.update(photos_params)
+      flash[:notice] = "Photo Successfully Updated"
+      redirect_to edit_missing_item_path(@missing_item)
+    else
+      flash[:alert] = "Something went wrong during the update process"
+      redirect_to edit_missing_item_path(@missing_item)
+    end
+  end
+
   def create
     @photo = Photo.new(photos_params)
     @missing_item = MissingItem.find_by(id: params[:photo][:missing_item_id])
