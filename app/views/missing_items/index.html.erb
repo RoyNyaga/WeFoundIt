@@ -1,5 +1,7 @@
 
-<%= render "shared/header"%>
+<% unless is_search.present? %>
+  <%= render "shared/header"%>
+<% end %>
 
 <div class="container">
   <h3 class="text-center my-5">Missing Items</h3>
