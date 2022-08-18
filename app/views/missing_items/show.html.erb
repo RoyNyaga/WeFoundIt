@@ -36,7 +36,7 @@
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <% @missing_item.photos.each_with_index do |photo, index| %>
-            <% class_name = index == 1 ? "active" : "any-photo" %>
+            <% class_name = index == 0 ? "active" : "any-photo" %>
             <div class="carousel-item <%=class_name%>">
               <%= image_tag url_for(photo.photo), class: "img-fluid" %>
             </div>
