@@ -4,7 +4,7 @@ class MissingItemsController < ApplicationController
 
   # GET /missing_items or /missing_items.json
   def index
-    is_search = params[:search]
+    @is_search = params[:search]
     if is_search
       sql = "name LIKE '%#{params[:name]}%'"
       sql = sql + " AND city LIKE '%#{params[:city]}%'" if params[:city].present?
