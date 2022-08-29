@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'activeadmin', '~> 2.13', '>= 2.13.1'
+gem "figaro"
+gem 'aws-sdk-s3', '~> 1.114'
