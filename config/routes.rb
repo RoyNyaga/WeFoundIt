@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
   ActiveAdmin.routes(self)
   root "missing_items#index"
   resources :missing_items do
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
-  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
   resources :photos

@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
 
   def destroy
     @photo = Photo.find(params[:id])

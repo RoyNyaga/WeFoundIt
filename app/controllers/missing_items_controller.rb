@@ -1,5 +1,5 @@
 class MissingItemsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_missing_item, only: %i[ show edit update destroy, toggle_status ]
 
   # GET /missing_items or /missing_items.json
